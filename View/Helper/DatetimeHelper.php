@@ -228,4 +228,36 @@ class DatetimeHelper extends TimeHelper {
 		return substr($badTime, 0, 5);
 	}
 
+
+		/**
+	 * Convert 12 hour time to 24 hour time
+	 * @param string $timestamp
+	 */
+	public function convertTimeTo24($time = ''){
+		if(empty($time)) return;
+		return date('Y-m-d H:i:s', strtotime($time)); //Convert to 24hrs
+	}
+
+	/**
+	 * Convert 24 hour time to 12 hour time
+	 * @param string $timestamp
+	 */
+	public function convertTimeTo12($time = ''){
+		if(empty($time)) return;
+		return date('Y-m-d h:i:s', strtotime($time)); //Convert to 24hrs
+	}
+
+	/**
+	 * Parses the AM/PM from a string
+	 * @param string $str
+	 */
+	public function getMeridiem($str=''){
+		$ext = strtoupper(substr($str,-2));
+		if($ext == "AM" || $ext == "PM"){
+			return $ext;
+		}else{
+			return null;
+		}
+	}
+
 }

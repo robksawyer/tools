@@ -24,6 +24,23 @@ class DatetimeLib {
 
 
 /** custom stuff **/
+	
+	/**
+	 * Function to calculate date or time difference.
+	 * 
+	 * Function to calculate date or time difference. Returns an array or
+	 * false on error.
+	 * 
+	 * @author       J de Silva                             <giddomains@gmail.com>
+	 * @copyright    Copyright &copy; 2005, J de Silva
+	 * @link         http://www.gidnetwork.com/b-16.html    Get the date / time difference with PHP
+	 * @param        string                                 $start
+	 * @param        string                                 $end
+	 * @return       array
+	 */
+	public function get_time_difference( $start, $end ) {
+		$this->difference($start, $end);
+	}
 
 	/**
 	 * calculate the difference between two dates
