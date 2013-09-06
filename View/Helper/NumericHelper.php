@@ -25,6 +25,9 @@ class NumericHelper extends NumberHelper {
 	protected $thousandsPoint = ',';
 	*/
 
+/**
+ * 
+ */
 	public function __construct($View = null, $settings = array()) {
 		$settings = Set::merge(array('engine' => 'Tools.NumberLib'), $settings);
 		parent::__construct($View, $settings);	
@@ -49,6 +52,21 @@ class NumericHelper extends NumberHelper {
 			$this->thousandsPoint = $i18n['thousands'];
 		}
 		*/
+	}
+
+/**
+ * Returns the ordinal suffix of the number passed
+ * @source http://stackoverflow.com/questions/3109978/php-display-number-with-ordinal-suffix
+ * @param int $number
+ * @return string
+ */
+	public function getOrdinalSuffix($number = 0){
+		$ends = array('th','st','nd','rd','th','th','th','th','th','th');
+		if (($number %100) >= 11 && ($number%100) <= 13){
+		   return $number. 'th';
+		}else{
+		   return $number. $ends[$number % 10];
+		}
 	}
 
 }
