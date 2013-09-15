@@ -233,8 +233,8 @@ class CommonHelper extends AppHelper {
 	public function cssAuto($path, $rel = null, $htmlAttributes = array(), $return = true) {
 		define('COMPRESS_CSS',true);
 
-			$time = date('YmdHis', filemtime(APP . 'webroot' . DS . CSS_URL . $path . '.css'));
-			$url = "{$this->request->webroot}" . (COMPRESS_CSS ? 'c' : '') . CSS_URL . $this->themeWeb . $path . ".css?" . $time;
+			$time = date('YmdHis', filemtime(APP . 'webroot' . DS . Configure::read('App.cssBaseUrl') . $path . '.css'));
+			$url = "{$this->request->webroot}" . (COMPRESS_CSS ? 'c' : '') . Configure::read('App.cssBaseUrl') . $this->themeWeb . $path . ".css?" . $time;
 	 	return $url;
 	}
 
